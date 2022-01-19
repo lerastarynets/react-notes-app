@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Navigate to={"/notes"} />} />
+        <Route path="/react-notes-app" element={<Navigate to={"/notes"} />} />
         <Route exact path="/notes" element={<NotesApp />} />
         <Route exact path="/archieve" element={<Archieve />} />
         <Route path="*" element={<div>404 not found</div>} />

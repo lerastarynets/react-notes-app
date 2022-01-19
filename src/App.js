@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import NotesApp from "./pages/NotesApp/NotesApp";
+import Archieve from "./pages/Archieve/Archieve";
+import { Route, Routes } from "react-router-dom";
+import { Navigate } from "react-router";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Routes>
+        <Route path="/" element={<Navigate to={"/notes"} />} />
+        <Route exact path="/notes" element={<NotesApp />} />
+        <Route exact path="/archieve" element={<Archieve />} />
+        <Route path="*" element={<div>404 not found</div>} />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

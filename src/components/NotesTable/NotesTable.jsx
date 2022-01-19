@@ -15,9 +15,13 @@ const NotesTable = (props) => {
           <div className={s.headerItem}>Settings</div>
         </div>
         {props.notes.map((n, idx) => {
-          let date = n.content.match(
+          let dates = n.content.match(
             /(\d{1,4}([.\-/])\d{1,2}([.\-/])\d{1,4})/g
           );
+          let date = "";
+          if (dates !== null) {
+            date = dates.join(", ");
+          }
           if (props.isArchieve) {
             return (
               <Note
